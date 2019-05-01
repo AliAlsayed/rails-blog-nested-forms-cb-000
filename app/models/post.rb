@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :tags, reject_if: proc {|attributes| attributes[:title].blank?}
   validates_presence_of :name, :content
 
-  def tags_attributes=(tags_attributes)
+  def tags_attributes=(tag_attributes)
     tags_attributes.each do |attributes|
       self.tags << Tag.find_or_create_by(attributes)
     end
