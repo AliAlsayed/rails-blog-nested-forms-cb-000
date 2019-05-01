@@ -8,8 +8,9 @@ class Post < ActiveRecord::Base
 
   def tags_attributes=(tag_attributes)
     if tag_attributes.respond_to? :values
-    tag_attributes.values.each do |tag_attribute|
-      self.tags << Tag.find_or_create_by(tag_attribute)
+      tag_attributes.values.each do |tag_attribute|
+        self.tags << Tag.find_or_create_by(tag_attribute)
+      end
     end
   end
 end
