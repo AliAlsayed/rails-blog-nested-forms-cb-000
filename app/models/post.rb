@@ -10,5 +10,5 @@ class Post < ActiveRecord::Base
   #   tag_attributes.values.each do |tag_attribute|
   #     self.tags << Tag.find_or_create_by(tag_attribute)
   #   end
-  end
+  # end
 end
