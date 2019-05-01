@@ -7,10 +7,9 @@ class Post < ActiveRecord::Base
   validates_presence_of :name, :content
 
   def tags_attributes=(tag_attributes)
+    if tag_attributes.respond_to? :values
     tag_attributes.values.each do |tag_attribute|
-      if tag_attribute[:name]
-        self.tags << Tag.find_or_create_by(tag_attribute)
-      end
+      self.tags << Tag.find_or_create_by(tag_attribute)
     end
   end
 end
